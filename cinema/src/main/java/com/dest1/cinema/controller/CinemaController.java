@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/filmes")
-public class CinemaCadastroController {
+public class CinemaController {
 
     @Autowired
     CinemaRepository repository;
