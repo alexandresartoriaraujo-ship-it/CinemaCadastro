@@ -1,7 +1,7 @@
 
 package com.dest1.cinema.controller;
 
-import com.dest1.cinema.register.CadastroCinema;
+import com.dest1.cinema.entities.CadastroCinema;
 import com.dest1.cinema.repositories.CinemaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

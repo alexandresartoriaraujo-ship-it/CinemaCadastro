@@ -1,5 +1,5 @@
 
-package com.dest1.cinema.register;
+package com.dest1.cinema.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
