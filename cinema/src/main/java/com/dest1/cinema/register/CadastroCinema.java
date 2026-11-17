@@ -1,37 +1,50 @@
+
 package com.dest1.cinema.register;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Column;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
+@Table(name = "cadastro_cinema")
 public class CadastroCinema {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(name = "nome_filme")
     private String nomeFilme;
+
+    @Column(name = "genero")
     private String genero;
+
+    @Column(name = "diretor")
     private String diretor;
+
+    @Column(name = "ano_lancamento")
     private int anoLancamento;
+
+    @Column(name = "duracao")
     private int duracao;
+
+    @Column(name = "classificacao")
     private String classificacao;
+
+    @Column(name = "imagem", columnDefinition = "TEXT")
     private String imagem;
+
+    @Column(name = "descricao")
     private String descricao;
+
+    @Column(name = "plataforma")
+    private String plataforma;
 
     public CadastroCinema() {
 
-    }
-
-    public CadastroCinema(int id, String nomeFilme, String genero, String diretor, int anoLancamento, int duracao, String classificacao, String imagem, String descricao) {
-        this.id = id;
-        this.nomeFilme = nomeFilme;
-        this.genero = genero;
-        this.diretor = diretor;
-        this.anoLancamento = anoLancamento;
-        this.duracao = duracao;
-        this.classificacao = classificacao;
-        this.imagem = imagem;
-        this.descricao = descricao;
     }
 
     public int getId() {
@@ -104,5 +117,13 @@ public class CadastroCinema {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public String getPlataforma() {
+        return plataforma;
+    }
+
+    public void setPlataforma(String plataforma) {
+        this.plataforma = plataforma;
     }
 }

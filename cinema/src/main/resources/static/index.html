@@ -5,7 +5,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CinemaCadastro | Catálogo de Filmes</title>
+
+    <title>Cinema Cadastro</title>
 
     <style>
         * {
@@ -15,73 +16,73 @@
         body {
             margin: 0;
             min-height: 100vh;
-            font-family: Arial, sans-serif;
+            background: #181818;
             color: white;
-            background: linear-gradient(135deg, #151515, #292020, #111);
+            font-family: Arial, sans-serif;
         }
 
         header {
+            background: #222;
+            padding: 30px 20px;
             text-align: center;
-            padding: 35px 20px;
-            background: #1c1c1c;
-            border-bottom: 5px solid #e50914;
+            border-bottom: 5px solid #b90012;
         }
 
         header h1 {
             margin: 0;
-            font-size: 38px;
-            color: #e50914;
+            font-size: 32px;
         }
 
         header p {
-            color: #ccc;
+            color: #bbb;
             margin-bottom: 0;
         }
 
         .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: 35px auto;
+            width: min(1100px, 94%);
+            margin: 30px auto;
         }
 
         .painel {
-            background: #222;
-            padding: 25px;
-            border-radius: 10px;
+            background: #242424;
             border: 1px solid #444;
+            border-radius: 10px;
+            padding: 25px;
+            margin-bottom: 35px;
         }
 
         h2 {
-            color: #e50914;
             margin-top: 0;
+            margin-bottom: 25px;
         }
 
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 18px;
+            gap: 20px 25px;
         }
 
         label {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
             font-weight: bold;
+            font-size: 16px;
         }
 
         input, textarea {
             width: 100%;
-            padding: 13px;
-            border: 1px solid #555;
-            border-radius: 5px;
+            padding: 15px;
             background: #333;
             color: white;
-            font-size: 15px;
+            border: 1px solid #555;
+            border-radius: 7px;
+            font-size: 16px;
             outline: none;
         }
 
         input:focus, textarea:focus {
-            border-color: #e50914;
+            border-color: #d00016;
         }
 
         input::placeholder, textarea::placeholder {
@@ -99,24 +100,24 @@
         .acoes {
             display: flex;
             align-items: center;
-            gap: 15px;
             flex-wrap: wrap;
-            margin-top: 20px;
+            gap: 20px;
+            margin-top: 25px;
         }
 
         button {
-            padding: 13px 22px;
-            border: none;
-            border-radius: 5px;
-            background: #e50914;
+            background: #bd0015;
             color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 17px 25px;
+            font-size: 17px;
             font-weight: bold;
-            font-size: 15px;
             cursor: pointer;
         }
 
         button:hover {
-            background: #b20710;
+            background: #e00019;
         }
 
         button:disabled {
@@ -124,20 +125,14 @@
             cursor: wait;
         }
 
-        #mensagem {
+        .sucesso {
+            color: #65db85;
             font-weight: bold;
         }
 
-        .sucesso {
-            color: #70e070;
-        }
-
         .erro {
-            color: #ff7777;
-        }
-
-        .secao-filmes {
-            margin-top: 40px;
+            color: #ff7070;
+            font-weight: bold;
         }
 
         .titulo-lista {
@@ -147,40 +142,38 @@
             gap: 15px;
         }
 
+        .botao-atualizar {
+            padding: 12px 18px;
+            font-size: 14px;
+        }
+
         .lista-filmes {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
         }
 
         .card {
-            overflow: hidden;
-            background: #222;
+            background: #242424;
             border: 1px solid #444;
-            border-radius: 8px;
-            box-shadow: 0 5px 12px rgba(0,0,0,.4);
+            border-radius: 10px;
+            overflow: hidden;
         }
 
         .card-imagem {
-            display: block;
             width: 100%;
-            height: 170px;
+            height: 300px;
             object-fit: cover;
             background: #333;
         }
 
-        .card-placeholder {
+        .imagem-placeholder {
+            height: 200px;
             display: flex;
-            align-items: center;
             justify-content: center;
-            height: 170px;
-            font-size: 45px;
-            background: linear-gradient(135deg, #4b1515, #222);
-        }
-
-        .card-faixa {
-            height: 5px;
-            background: #e50914;
+            align-items: center;
+            background: #333;
+            font-size: 50px;
         }
 
         .card-conteudo {
@@ -188,9 +181,10 @@
         }
 
         .card h3 {
+            color: #ff5a67;
             margin-top: 0;
-            color: #ff4545;
             font-size: 21px;
+            overflow-wrap: anywhere;
         }
 
         .card p {
@@ -201,20 +195,24 @@
 
         .descricao {
             border-top: 1px solid #444;
-            padding-top: 10px;
+            padding-top: 12px;
         }
 
         .estado {
-            color: #ccc;
+            color: #bbb;
+            padding: 15px 0;
             grid-column: 1 / -1;
         }
 
         footer {
-            margin-top: 50px;
-            padding: 25px;
             text-align: center;
-            background: #1c1c1c;
+            padding: 25px;
             color: #999;
+            border-top: 1px solid #333;
+        }
+
+        footer span {
+            color: #d00016;
         }
 
         @media (max-width: 650px) {
@@ -227,23 +225,24 @@
             }
 
             .titulo-lista {
-                align-items: flex-start;
                 flex-direction: column;
+                align-items: flex-start;
             }
 
-            header h1 {
-                font-size: 28px;
+            .painel {
+                padding: 18px;
             }
         }
 
     </style>
+
 </head>
 
 <body>
 
 <header>
-    <h1>🎬 CINEMACADASTRO</h1>
-    <p>Cadastre, explore e descubra seus filmes favoritos!</p>
+    <h1>🎬 CINEMA CADASTRO</h1>
+    <p>Cadastre, organize e explore seus filmes favoritos!</p>
 </header>
 
 <main class="container">
@@ -257,29 +256,45 @@
             <div class="form-grid">
 
                 <label>
-                    ID do filme
-                    <input type="number" id="id" placeholder="Ex: 1" required>
-                </label>
-
-                <label>
                     Nome do filme
-                    <input type="text" id="nome" placeholder="Ex: Interestelar" required>
+                    <input type="text" id="nomeFilme"
+                           placeholder="Ex.: Interestelar" required>
                 </label>
 
                 <label>
                     Gênero
-                    <input type="text" id="genero" placeholder="Ex: Ficção Científica" required>
+                    <input type="text" id="genero"
+                           placeholder="Ex.: Ficção científica" required>
+                </label>
+
+                <label>
+                    Diretor
+                    <input type="text" id="diretor"
+                           placeholder="Ex.: Christopher Nolan" required>
                 </label>
 
                 <label>
                     Plataforma
-                    <input type="text" id="plataforma" placeholder="Ex: Cinema" required>
+                    <input type="text" id="plataforma"
+                           placeholder="Ex.: Cinema, Netflix, Prime Video" required>
                 </label>
 
                 <label>
                     Ano de lançamento
                     <input type="number" id="anoLancamento"
-                           placeholder="Ex: 2014" min="1888" max="2100" required>
+                           min="1888" max="2100" required>
+                </label>
+
+                <label>
+                    Duração (minutos)
+                    <input type="number" id="duracao"
+                           min="1" placeholder="Ex.: 169" required>
+                </label>
+
+                <label>
+                    Classificação indicativa
+                    <input type="text" id="classificacao"
+                           placeholder="Ex.: 10 anos" required>
                 </label>
 
                 <label class="campo-largo">
@@ -291,7 +306,7 @@
                 <label class="campo-largo">
                     Descrição / Sinopse
                     <textarea id="descricao" rows="4"
-                              placeholder="Conte um pouco sobre o filme..."></textarea>
+                              placeholder="Descreva o filme..."></textarea>
                 </label>
 
             </div>
@@ -302,7 +317,7 @@
                     ✚ Cadastrar filme
                 </button>
 
-                <p id="mensagem" role="status"></p>
+                <p id="mensagem" role="status" aria-live="polite"></p>
 
             </div>
 
@@ -310,14 +325,14 @@
 
     </section>
 
-
-    <section class="secao-filmes">
+    <section>
 
         <div class="titulo-lista">
 
             <h2>▦ Filmes cadastrados</h2>
 
-            <button type="button" id="btnAtualizar">
+            <button type="button" class="botao-atualizar"
+                    id="btnAtualizar">
                 ↻ Atualizar
             </button>
 
@@ -334,12 +349,12 @@
 </main>
 
 <footer>
-    CINEMACADASTRO • Seu catálogo de filmes começa aqui.
+    CINEMACADASTRO <span>•</span> Seu catálogo de filmes começa aqui.
 </footer>
-
 
 <script>
 
+    // Endereço da API Spring Boot
     const API_URL = "http://localhost:8080/api/filmes";
 
     const formFilme = document.getElementById("formFilme");
@@ -348,8 +363,7 @@
     const btnCadastrar = document.getElementById("btnCadastrar");
 
 
-    // GET: Buscar filmes cadastrados
-
+    // GET: listar filmes cadastrados
     async function listarFilmes() {
 
         listaFilmes.innerHTML =
@@ -380,6 +394,7 @@
                 const card = document.createElement("article");
                 card.className = "card";
 
+                // Imagem
                 let areaImagem;
 
                 if (filme.imagem) {
@@ -387,54 +402,74 @@
                     areaImagem = document.createElement("img");
                     areaImagem.className = "card-imagem";
                     areaImagem.src = filme.imagem;
-                    areaImagem.alt = "Capa de " + filme.nome;
+                    areaImagem.alt = "Capa de " + (filme.nomeFilme || "");
                     areaImagem.loading = "lazy";
 
-                    areaImagem.onerror = () => {
+                    areaImagem.onerror = function() {
 
                         const placeholder = document.createElement("div");
-
-                        placeholder.className = "card-placeholder";
+                        placeholder.className = "imagem-placeholder";
                         placeholder.textContent = "🎬";
 
                         areaImagem.replaceWith(placeholder);
-
                     };
 
                 } else {
 
                     areaImagem = document.createElement("div");
-                    areaImagem.className = "card-placeholder";
+                    areaImagem.className = "imagem-placeholder";
                     areaImagem.textContent = "🎬";
 
                 }
 
-                const faixa = document.createElement("div");
-                faixa.className = "card-faixa";
-
                 const conteudo = document.createElement("div");
                 conteudo.className = "card-conteudo";
 
+                // Nome do filme
                 const nome = document.createElement("h3");
-                nome.textContent = "🎬 " + (filme.nome || "Filme sem nome");
+                nome.textContent = "🎬 " + (filme.nomeFilme || "Filme sem nome");
 
+                // Gênero
                 const genero = document.createElement("p");
                 genero.textContent = "🎭 Gênero: " + (filme.genero || "-");
 
+                // Diretor
+                const diretor = document.createElement("p");
+                diretor.textContent = "🎥 Diretor: " + (filme.diretor || "-");
+
+                // Plataforma
                 const plataforma = document.createElement("p");
                 plataforma.textContent = "📺 Plataforma: " + (filme.plataforma || "-");
 
+                // Ano
                 const ano = document.createElement("p");
-                ano.textContent = "📅 Lançamento: " + (filme.anoLancamento || "-");
+                ano.textContent = "📅 Lançamento: " + (filme.anoLancamento ?? "-");
 
+                // Duração
+                const duracao = document.createElement("p");
+                duracao.textContent = "⏱ Duração: " + (filme.duracao ?? "-") + " minutos";
+
+                // Classificação
+                const classificacao = document.createElement("p");
+                classificacao.textContent = "🔞 Classificação: " + (filme.classificacao || "-");
+
+                // Descrição
                 const descricao = document.createElement("p");
                 descricao.className = "descricao";
-                descricao.textContent =
-                    filme.descricao || "Sem descrição cadastrada.";
+                descricao.textContent = filme.descricao || "Sem descrição cadastrada.";
 
-                conteudo.append(nome, genero, plataforma, ano, descricao);
+                conteudo.append(
+                    nome,
+                    genero,
+                    diretor,
+                    plataforma,
+                    ano,
+                    duracao,
+                    classificacao,
+                    descricao
+                );
 
-                card.append(areaImagem, faixa, conteudo);
+                card.append(areaImagem, conteudo);
 
                 listaFilmes.appendChild(card);
 
@@ -452,23 +487,26 @@
     }
 
 
-    // POST: Cadastrar filme
-
-    formFilme.addEventListener("submit", async (event) => {
+    // POST: cadastrar filme
+    formFilme.addEventListener("submit", async function(event) {
 
         event.preventDefault();
 
         const filme = {
 
-            id: Number(document.getElementById("id").value),
-
-            nome: document.getElementById("nome").value.trim(),
+            nomeFilme: document.getElementById("nomeFilme").value.trim(),
 
             genero: document.getElementById("genero").value.trim(),
+
+            diretor: document.getElementById("diretor").value.trim(),
 
             plataforma: document.getElementById("plataforma").value.trim(),
 
             anoLancamento: Number(document.getElementById("anoLancamento").value),
+
+            duracao: Number(document.getElementById("duracao").value),
+
+            classificacao: document.getElementById("classificacao").value.trim(),
 
             imagem: document.getElementById("imagem").value.trim(),
 
@@ -476,7 +514,7 @@
 
         };
 
-        mensagem.textContent = "Enviando cadastro...";
+        mensagem.textContent = "Cadastrando filme...";
         mensagem.className = "";
 
         btnCadastrar.disabled = true;
@@ -528,13 +566,12 @@
     });
 
 
-    // Botão para atualizar a lista
-
-    document.getElementById("btnAtualizar").addEventListener("click", listarFilmes);
+    // Atualizar catálogo
+    document.getElementById("btnAtualizar")
+        .addEventListener("click", listarFilmes);
 
 
     // Carregar filmes ao abrir a página
-
     listarFilmes();
 
 </script>
