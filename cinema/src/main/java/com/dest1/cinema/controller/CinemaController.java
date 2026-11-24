@@ -1,7 +1,7 @@
 
 package com.dest1.cinema.controller;
 
-import com.dest1.cinema.entities.CadastroCinema;
+import com.dest1.cinema.entities.Cinema;
 import com.dest1.cinema.repositories.CinemaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,12 +16,12 @@ public class CinemaController {
     CinemaRepository repository;
 
     @PostMapping
-    public CadastroCinema cadastrar(@RequestBody CadastroCinema c) {
+    public Cinema cadastrar(@RequestBody Cinema c) {
         return repository.save(c);
     }
 
     @GetMapping
-    public List<CadastroCinema> mostrar() {
+    public List<Cinema> mostrar() {
         return repository.findAll();
     }
 
